@@ -31,6 +31,7 @@ while opcion == 'si':
         print('el vuelo no esta registrado')
 
     opcion = input('\ndesea hacer otra reserva? si/no\n').strip().lower()
+
 if opcion == 'no':
     print("Gracias por preferir nuestra aerolinea")
 else:
@@ -49,20 +50,21 @@ for item in reservas:
     precio_vuelo = precio_vuelos_tupla[2]
     subtotal = cantidad_asientos * precio_vuelo
     dinero_total += subtotal
-    print(f'{nombre_cliente}    {codigo_vuelo}    {cantidad_asientos} asientos    precio: {precio_vuelo}    subtotal: {subtotal}')
+    print(f'{nombre_cliente}    {codigo_vuelos}    {cantidad_asientos} asientos    precio: {precio_vuelo}    subtotal: {subtotal}')
     print('-'*50)
 
 print(f'El total recaudado es: {dinero_total}')
+
 conteo = {}
 for item in reservas:
     codigo_vuelos = item[1]
+    cantidad_asientos = item[2]
     if codigo_vuelos in conteo:
-        conteo[codigo_vuelos] += 1
+        conteo[codigo_vuelos] += cantidad_asientos
     else:
-        conteo[codigo_vuelos] = 1
-
+        conteo[codigo_vuelos] = cantidad_asientos
 if conteo:
     vuelo_top = max(conteo, key=conteo.get)
-    print(f'El vuelo con mas reservas es: {vuelo_top} con {conteo[vuelo_top]} reservas')
+    print(f'El vuelo con mas asientos vendidos es: {vuelo_top} con {conteo[vuelo_top]} asientos')
 else:
     print('No se realizaron reservas')
