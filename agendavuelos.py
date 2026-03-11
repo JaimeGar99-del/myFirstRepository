@@ -12,7 +12,7 @@ print('Bienvenido')
 while opcion == 'si':
     print('\nVuelos disponibles:')
     for codigo, datos in vuelos.items():
-        print(f'{codigo} - {datos[0]} - Asientos: {datos[1]} - Precio: {datos[2]}')
+        print(f'{codigo} - Destino: {datos[0]} - Asientos: {datos[1]} - Precio: {datos[2]}')
 
     nombre_pasajero = input('\ningrese el nombre del pasajero\n').strip().capitalize()
     codigo_vuelo = input('ingrese el codigo del vuelo\n').strip().upper()
